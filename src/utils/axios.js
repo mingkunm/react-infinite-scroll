@@ -1,8 +1,9 @@
 import axios from "axios";
+const envToken;
 try {
   import { token } from "../config";
 } catch (err) {
-  token = process.env.token;
+  envToken = process.env.token;
 }
 
 const auth = axios.create({
@@ -10,7 +11,7 @@ const auth = axios.create({
 });
 
 if (token) {
-  auth.defaults.headers.common["Authorization"] = token;
+  auth.defaults.headers.common["Authorization"] = token || envToken;
 }
 
 export default auth;
