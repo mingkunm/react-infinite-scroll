@@ -25,9 +25,7 @@ export default function ReposList({ initialUrl, setOpen }) {
 
   // Fetch repos list
   const fetchReposList = async () => {
-    // console.log(nextUrl);
     const newRepos = await api.get(`https://api.github.com/${nextUrl}`);
-    // console.log(newRepos);
     if (newRepos.headers.link) {
       const temp = getNextUrl(newRepos.headers.link);
       if (temp) {
@@ -35,6 +33,8 @@ export default function ReposList({ initialUrl, setOpen }) {
       } else {
         setHasMore(false);
       }
+    } else {
+      setHasMore(false);
     }
     setRepos([...repos, ...newRepos.data]);
   };
