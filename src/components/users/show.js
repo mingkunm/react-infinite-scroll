@@ -36,42 +36,46 @@ export default function UserDetail({ user, setOpen }) {
           <div className="bar-item">{user.location}</div>
         </div>
       </div>
-      <div>
-        <h4>
-          Github:
-          <a href={user.html_url} target="_blank" rel="noreferrer">
-            <span className="show-button">{user.html_url}</span>
-          </a>
-        </h4>
+      <hr className="user-detail-divider"></hr>
+      <div className="user-content">
+        <div>
+          <h4>
+            Github:
+            <a href={user.html_url} target="_blank" rel="noreferrer">
+              <span className="show-button">{user.html_url}</span>
+            </a>
+          </h4>
+        </div>
+        <div>
+          <h4>
+            Repositories ({user.public_repos}) :
+            <span
+              className="show-button"
+              onClick={() => {
+                setfollowersListOpen("none");
+                setReposListOpen("block");
+              }}
+            >
+              View More
+            </span>
+          </h4>
+        </div>
+        <div>
+          <h4>
+            Followers ({user.followers}) :
+            <span
+              className="show-button"
+              onClick={() => {
+                setfollowersListOpen("block");
+                setReposListOpen("none");
+              }}
+            >
+              View More
+            </span>
+          </h4>
+        </div>
       </div>
-      <div>
-        <h4>
-          Repositories ({user.public_repos}) :
-          <span
-            className="show-button"
-            onClick={() => {
-              setfollowersListOpen("none");
-              setReposListOpen("block");
-            }}
-          >
-            View More
-          </span>
-        </h4>
-      </div>
-      <div>
-        <h4>
-          Followers ({user.followers}) :
-          <span
-            className="show-button"
-            onClick={() => {
-              setfollowersListOpen("block");
-              setReposListOpen("none");
-            }}
-          >
-            View More
-          </span>
-        </h4>
-      </div>
+
       {/* Repo modal */}
       <div style={{ display: reposListOpen }}>
         <div className="modal-content">

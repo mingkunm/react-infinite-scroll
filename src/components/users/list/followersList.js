@@ -87,7 +87,7 @@ export default function ReposList({ initialUrl, setOpen }) {
           dataLength={users.length}
           next={fetchMoreData}
           hasMore={hasMore}
-          loader={<h4>Loading...</h4>}
+          loader={<div className="loader"></div>}
           scrollableTarget="scrollableDiv"
         >
           {users.map((item, index) => (

@@ -131,7 +131,7 @@ export default function UserIndex() {
             dataLength={users.length}
             next={fetchMoreData}
             hasMore={detailDisplay.index === "block"}
-            loader={<h4>Loading...</h4>}
+            loader={<div className="loader"></div>}
           >
             {search
               ? search.map((item, index) => (
