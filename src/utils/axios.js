@@ -5,6 +5,8 @@ const auth = axios.create({
   baseURL: "https://api.github.com/",
 });
 
-auth.defaults.headers.common["Authorization"] = token;
+if (token) {
+  auth.defaults.headers.common["Authorization"] = token;
+}
 
 export default auth;
