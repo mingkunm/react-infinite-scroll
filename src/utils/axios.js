@@ -1,5 +1,9 @@
 import axios from "axios";
-import { token } from "../config";
+try {
+  import { token } from "../config";
+} catch (err) {
+  token = process.env.token;
+}
 
 const auth = axios.create({
   baseURL: "https://api.github.com/",
