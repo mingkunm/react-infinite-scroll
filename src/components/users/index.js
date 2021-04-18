@@ -99,7 +99,7 @@ export default function UserIndex() {
             src={user.avatar_url}
             alt="Avatar"
             className="bar-item circle"
-            style={{ width: "85px" }}
+            style={{ width: "85px", height: "85px" }}
           ></img>
           <div className="card-content">
             <div className="bar-item" style={{ fontWeight: "bold" }}>
